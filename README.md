@@ -28,7 +28,7 @@ __GET__ `http://localhost:3000/customers`
 
 Run:  
 ```
-curl http://localhost/customers
+curl http://localhost:3000/customers
 ```  
 Response:  
 ```
@@ -68,7 +68,7 @@ __GET__ `http://localhost:3000/customers/{id}`
 
 Run:  
 ```
-curl http://localhost/customers/1
+curl http://localhost:3000/customers/1
 ```  
 Response:  
 ```

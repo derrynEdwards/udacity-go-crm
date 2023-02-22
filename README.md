@@ -17,10 +17,43 @@ Running
 Available Endpoints
 -------------------
 __GET__ `http://localhost:3000/customers`  
+Use this endpoint in order to fetch the full list of customers available in the database.  
+
 __GET__ `http://localhost:3000/customers/{id}`  
+Use this endpoint in order to fetch a specific customer from the list of customers in the database.
+The `{id}` is the unique ID assigned to the customer entry.  
+
 __POST__ `http://localhost:3000/customers`  
+Use this endpoint with a POST request in order to add a customer to the list of customers in the database.  
+The required format of the payload to send:  
+```
+{
+    "name": <string>,
+    "role": <string>,
+    "email": <string>,
+    "phone": <string>,
+    "contacted": <bool>
+}
+```
+If successful, it will return a status `201` and the full list of customers.  
+
 __PUT__ `http://localhost:3000/customers/{id}`  
+Use this endpoint with a PUT request in order to update a customer entry which already exists in the database.  
+The `{id}` is the unique ID assigned to the customer entry.  
+The required format of the payload to send:  
+```
+{
+    "name": <string>,
+    "role": <string>,
+    "email": <string>,
+    "phone": <string>,
+    "contacted": <bool>
+}
+```
+
 __DELETE__ `http://localhost:3000/customers/{id}`  
+USe this endpoint with a DELETE request in order to remove a customer entry which already exists in the database.  
+The `{id}` is the unique ID assigned to the customer entry.  
 
 Sample Endpoints
 ----------------

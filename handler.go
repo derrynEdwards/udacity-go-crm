@@ -47,7 +47,7 @@ func addCustomer(w http.ResponseWriter, r *http.Request) {
 	err := json.Unmarshal(reqBody, &newEntry)
 	customerIndex := ""
 
-	for k, _ := range Customers {
+	for k := range Customers {
 		i, _ := strconv.Atoi(k)
 		i++
 		customerIndex = strconv.Itoa(i)

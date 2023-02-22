@@ -77,7 +77,7 @@ func updateCustomer(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	id := mux.Vars(r)["id"]
-	newEntry := map[string]Customer{}
+	newEntry := Customer{}
 	reqBody, _ := io.ReadAll(r.Body)
 	err := json.Unmarshal(reqBody, &newEntry)
 
@@ -87,8 +87,8 @@ func updateCustomer(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			w.WriteHeader(http.StatusConflict)
 			json.NewEncoder(w).Encode(getResponse("400"))
-		} else if newEntry[id].Name != "" && newEntry[id].Phone != "" {
-			Customers[id] = newEntry[id]
+		} else if newEntry.Name != "" && newEntry.Phone != "" {
+			Customers[id] = newEntry
 			w.WriteHeader(http.StatusOK)
 			json.NewEncoder(w).Encode(Customers)
 		} else {

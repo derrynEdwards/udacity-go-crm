@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html land="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Udacity Go CRM</title>
+    </head>
+    <body>
+        <h1>Udacity Go CRM</h1>
+        <div>
+            <h2>Overview</h2>
+            <p>
+                Simple REST API Built in Go that acts as a CRM Backend.
+            </p>
+        </div>
+        <div>
+            <h2>Endpoints</h2>
+            <u><b><em>Server: http://localhost:3000</em></b></u>
+            <h3>GET /customers</h3>
+            <p>
+                <b><em>Success Code: </em></b> 200<br>
+                <b><em>Sample Call</em></b><br>
+                <pre>
+                <code>
+                    curl http://localhost:3000/customers
+                </code><br>
+                </pre>
+                <b><em>Returns - </em></b> All Existing Customer<br>
+                <b><em>Sample Response</em></b><br>
+                <pre>
+                <code>
+                    {
+                        "1": {
+                            "name": "John",
+                            "role": "CEO",
+                            "email": "john@udatech.com",
+                            "phone": "+11234567890",
+                            "contacted": false
+                        },
+                        "2": {
+                            "name": "Jane",
+                            "role": "COO",
+                            "email": "jane@udatech.com",
+                            "phone": "+11234567908",
+                            "contacted": true
+                        },
+                        "3": {
+                            "name": "Carl",
+                            "role": "CEO",
+                            "email": "carl@mycompany.com",
+                            "phone": "+11234567809",
+                            "contacted": true
+                        },
+                        "4": {
+                            "name": "Kane",
+                            "role": "CTO",
+                            "email": "kane@kanecorp.com",
+                            "phone": "+11234567788",
+                            "contacted": false
+                        },
+                        "5": {
+                            "name": "Casey",
+                            "role": "COO",
+                            "email": "casey@ccc.com",
+                            "phone": "+11234567777",
+                            "contacted": true
+                        }
+                    }
+                </code>
+                </pre>
+            </p>
+            <h3>GET /customers/{id}</h3>
+            <p>
+                <b><em>Success Code: </em></b> 200<br>
+                <b><em>Sample Call</em></b><br>
+                <pre>
+                <code>
+                    curl http://localhost:3000/customers/1
+                </code><br>
+                </pre>
+                <b><em>Returns - </em></b>Single Customer<br>
+                <b><em>Sample Response</em></b><br>
+                <pre>
+                <code>
+                    {
+                        "name": "John",
+                        "role": "CEO",
+                        "email": "john@udatech.com",
+                        "phone": "+11234567890",
+                        "contacted": false
+                    }
+                </code>
+                </pre>
+            </p>
+            <h3>POST /customers</h3>
+            <p>
+                <b><em>Success Code: </em></b> 200<br>
+                <b><em>Sample Call</em></b><br>
+                <pre>
+                <code>
+                    curl -X POST http://localhost:3000/customers \
+                    -H 'Content-Type: application/json' \
+                    -d '{"5": {"name":"Edwards","role":"Director of IT","email":"edwards@it.com","phone":"+11234567788","contacted":false}}'
+                </code><br>
+                </pre>
+                <b><em>Returns - </em></b> All Existing Customer<br>
+                <b><em>Sample Response</em></b><br>
+                <pre>
+                <code>
+                    {
+                        "1": {
+                            "name": "John",
+                            "role": "CEO",
+                            "email": "john@udatech.com",
+                            "phone": "+11234567890",
+                            "contacted": false
+                        },
+                        "2": {
+                            "name": "Jane",
+                            "role": "COO",
+                            "email": "jane@udatech.com",
+                            "phone": "+11234567908",
+                            "contacted": true
+                        },
+                        "3": {
+                            "name": "Carl",
+                            "role": "CEO",
+                            "email": "carl@mycompany.com",
+                            "phone": "+11234567809",
+                            "contacted": true
+                        },
+                        "4": {
+                            "name": "Kane",
+                            "role": "CTO",
+                            "email": "kane@kanecorp.com",
+                            "phone": "+11234567788",
+                            "contacted": false
+                        },
+                        "5": {
+                            "name": "Edwards",
+                            "role": "Director of IT",
+                            "email": "edwards@it.com",
+                            "phone": "+11234567788",
+                            "contacted": false
+                        }
+                    }
+                </code>
+                </pre>
+            </p>
+            <h3>PUT /customers/{id}</h3>
+            <p>
+                <b><em>Success Code: </em></b> 200<br>
+                <b><em>Sample Call</em></b><br>
+                <pre>
+                <code>
+                    curl -X PUT http://localhost:3000/customers/4 \
+                    -H 'Content-Type: application/json' \
+                    -d '{"4": {"name":"Edwards","role":"Director of IT","email":"edwards@it.com","phone":"+11234567788","contacted":false}}'
+                </code><br>
+                </pre>
+                <b><em>Returns - </em></b> All Existing Customer<br>
+                <b><em>Sample Response</em></b><br>
+                <pre>
+                <code>
+                    {
+                        "1": {
+                            "name": "John",
+                            "role": "CEO",
+                            "email": "john@udatech.com",
+                            "phone": "+11234567890",
+                            "contacted": false
+                        },
+                        "2": {
+                            "name": "Jane",
+                            "role": "COO",
+                            "email": "jane@udatech.com",
+                            "phone": "+11234567908",
+                            "contacted": true
+                        },
+                        "3": {
+                            "name": "Carl",
+                            "role": "CEO",
+                            "email": "carl@mycompany.com",
+                            "phone": "+11234567809",
+                            "contacted": true
+                        },
+                        "4": {
+                            "name": "Edwards",
+                            "role": "Director of IT",
+                            "email": "edwards@it.com",
+                            "phone": "+11234567788",
+                            "contacted": false
+                        }
+                    }
+                </code>
+                </pre>
+            </p>
+            <h3>DELETE /customers/{id}</h3>
+            <p>
+                <b><em>Success Code: </em></b> 200<br>
+                <b><em>Sample Call</em></b><br>
+                <pre>
+                <code>
+                    curl -X DELETE http://localhost:3000/customers/1
+                </code><br>
+                </pre>
+                <b><em>Returns - </em></b> All Existing Customer<br>
+                <b><em>Sample Response</em></b><br>
+                <pre>
+                <code>
+                    {
+                        "2": {
+                            "name": "Jane",
+                            "role": "COO",
+                            "email": "jane@udatech.com",
+                            "phone": "+11234567908",
+                            "contacted": true
+                        },
+                        "3": {
+                            "name": "Carl",
+                            "role": "CEO",
+                            "email": "carl@mycompany.com",
+                            "phone": "+11234567809",
+                            "contacted": true
+                        },
+                        "4": {
+                            "name": "Edwards",
+                            "role": "Director of IT",
+                            "email": "edwards@it.com",
+                            "phone": "+11234567788",
+                            "contacted": false
+                        },
+                        "5": {
+                            "name": "Edwards",
+                            "role": "Director of IT",
+                            "email": "edwards@it.com",
+                            "phone": "+11234567788",
+                            "contacted": false
+                        }
+                    }
+                </code>
+                </pre>
+            </p>
+        </div>
+    </body>
+</html>

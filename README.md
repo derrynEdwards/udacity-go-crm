@@ -87,7 +87,7 @@ Run:
 ```
 curl -X POST http://localhost:3000/customers \
 -H 'Content-Type: application/json' \
--d '{"5": {"name":"Edwards","role":"Director of IT","email":"edwards@it.com","phone":"+11234567788","contacted":false}}'
+-d '{"name":"Edwards","role":"Director of IT","email":"edwards@it.com","phone":"+11234567788","contacted":false}'
 ```  
 Response: 
 ```
@@ -136,7 +136,7 @@ Run:
 ```
 curl -X PUT http://localhost:3000/customers/4 \
 -H 'Content-Type: application/json' \
--d '{"4": {"name":"Edwards","role":"Director of IT","email":"edwards@it.com","phone":"+11234567788","contacted":false}}'
+-d '{"name":"Edwards","role":"Director of IT","email":"edwards@it.com","phone":"+11234567788","contacted":false}'
 ```  
 Response: 
 ```

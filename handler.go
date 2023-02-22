@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"io"
 	"net/http"
+	"strconv"
 
 	"github.com/gorilla/mux"
 )
@@ -41,28 +42,31 @@ func addCustomer(w http.ResponseWriter, r *http.Request) {
 	// if successfully created.
 
 	w.Header().Set("Content-Type", "application/json")
-	newEntry := map[string]Customer{}
-	newCustomers := map[string]Customer{}
+	newEntry := Customer{}
+	// delete newCustomers := map[string]Customer{}
 	reqBody, _ := io.ReadAll(r.Body)
 	err := json.Unmarshal(reqBody, &newEntry)
+	customerIndex := ""
 
-	for k, v := range newEntry {
-		if _, ok := Customers[k]; ok {
-			continue
-		} else {
-			newCustomers[k] = v
-		}
+	for k, _ := range Customers {
+		i, _ := strconv.Atoi(k)
+		i++
+		customerIndex = strconv.Itoa(i)
 	}
+
+	// for k, v := range newEntry {
+	// 	if _, ok := Customers[k]; ok {
+	// 		continue
+	// 	} else {
+	// 		newCustomers[k] = v
+	// 	}
+	// }
 
 	if err != nil {
 		w.WriteHeader(http.StatusConflict)
 		json.NewEncoder(w).Encode(getResponse("400"))
-	} else if len(newCustomers) > 0 {
-		for k, v := range newCustomers {
-			if v.Name != "" && v.Phone != "" {
-				Customers[k] = v
-			}
-		}
+	} else if newEntry.Name != "" && newEntry.Phone != "" {
+		Customers[customerIndex] = newEntry
 		w.WriteHeader(http.StatusCreated)
 		json.NewEncoder(w).Encode(Customers)
 	} else {

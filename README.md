@@ -1,10 +1,25 @@
 Udacity Go Nanodegree Project - CRM
 ===================================
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/derrynEdwards/udacity-go-crm)
 
 Overview
 --------
 
 Simple REST API Built in Go that acts as a CRM Backend.
+
+Required Packages
+-----------------
+This API requires the following package in order to run:  
+- `require github.com/gorilla/mux v1.8.0`
+
+Libraries Used
+--------------
+This API uses the following libraries:  
+- `fmt`
+- `net/http`
+- `encoding/json`
+- `io`
+- `strconv`  
 
 Running
 -------

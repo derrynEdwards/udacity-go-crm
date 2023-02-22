@@ -16,15 +16,15 @@ Running
 
 Available Endpoints
 -------------------
-__GET__ `http://localhost/customers`  
-__GET__ `http://localhost/customers/{id}`  
-__POST__ `http://localhost/customers`  
-__PUT__ `http://localhost/customers/{id}`  
-__DELETE__ `http://localhost/customers/{id}`  
+__GET__ `http://localhost:3000/customers`  
+__GET__ `http://localhost:3000/customers/{id}`  
+__POST__ `http://localhost:3000/customers`  
+__PUT__ `http://localhost:3000/customers/{id}`  
+__DELETE__ `http://localhost:3000/customers/{id}`  
 
 Sample Endpoints
 ----------------
-__GET__ `http://localhost/customers`  
+__GET__ `http://localhost:3000/customers`  
 
 Run:  
 ```
@@ -64,7 +64,7 @@ Response:
 }
 ```
 
-__GET__ `http://localhost/customers/{id}`  
+__GET__ `http://localhost:3000/customers/{id}`  
 
 Run:  
 ```
@@ -81,7 +81,7 @@ Response:
 }
 ```  
 
-__POST__ `http://localhost/customers` 
+__POST__ `http://localhost:3000/customers` 
 
 Run:  
 ```
@@ -130,7 +130,7 @@ Response:
 }
 ``` 
 
-__PUT__ `http://localhost/customers/{id}`  
+__PUT__ `http://localhost:3000/customers/{id}`  
 
 Run:  
 ```
@@ -172,7 +172,7 @@ Response:
 }
 ```
 
-__DELETE__ `http://localhost/customers/1` 
+__DELETE__ `http://localhost:3000/customers/1` 
 
 Run:  
 ```

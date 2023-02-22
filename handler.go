@@ -43,7 +43,6 @@ func addCustomer(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	newEntry := Customer{}
-	// delete newCustomers := map[string]Customer{}
 	reqBody, _ := io.ReadAll(r.Body)
 	err := json.Unmarshal(reqBody, &newEntry)
 	customerIndex := ""
@@ -53,14 +52,6 @@ func addCustomer(w http.ResponseWriter, r *http.Request) {
 		i++
 		customerIndex = strconv.Itoa(i)
 	}
-
-	// for k, v := range newEntry {
-	// 	if _, ok := Customers[k]; ok {
-	// 		continue
-	// 	} else {
-	// 		newCustomers[k] = v
-	// 	}
-	// }
 
 	if err != nil {
 		w.WriteHeader(http.StatusConflict)
